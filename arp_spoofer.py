@@ -64,7 +64,7 @@ def arp_spoofer(target_ip, router_ip):
         if send_packets_count in [2, 4]:
             if send_packets_count == 2:
                 print(colored("[+] Packet Forwarding Enabled...", 'green'))
-            subprocess.call(["sudo", "bash", "-c", "'echo 1 > /proc/sys/net/ipv4/ip_forward'"],
+            subprocess.call(["sudo sysctl -w net.ipv4.ip_forward=1"],
                             shell=True,
                             stderr=subprocess.DEVNULL,
                             stdout=subprocess.DEVNULL,
